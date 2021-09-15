@@ -33,7 +33,8 @@ class VideoCamera(object):
     
     def crop_objects(_, frame):
         (h, w) = frame.shape[:2]
-        blob = cv.dnn.blobFromImage(cv.resize(frame, (WIDTH, HEIGHT), SCALE_FACTOR, MEAN_VAL))
+        resized = cv.resize(frame, (WIDTH, HEIGHT))
+        blob = cv.dnn.blobFromImage(resized, SCALE_FACTOR, (WIDTH, HEIGHT), MEAN_VAL)
         ssd_net.setInput(blob)
         ssd_net_results = ssd_net.forward()
 
