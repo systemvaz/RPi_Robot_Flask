@@ -45,7 +45,7 @@ while video.isOpened():
             cv.rectangle(frame, (x1, y1), (x2, y2), bounding_box_colours[idx], 2)
 
     # frame = cv.resize(frame, file_size, interpolation=cv.INTER_NEAREST)
-    cv.imshow("Object Detection Test", frame)
+    # cv.imshow("Object Detection Test", frame)
 
 
 video.release()
