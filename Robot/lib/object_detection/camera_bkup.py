@@ -1,10 +1,10 @@
+from Robot.lib.object_detection.detect_objects import capture_and_detect_objects
 import numpy as np
 import cv2 as cv
-import sys
 import os
 
 from Robot.lib.object_detection.detect_expressions import capture_and_detect_face
-from Robot.lib.object_detection.detect_objects import capture_and_detect_objects
+# from Robot.lib.object_detection.detect_objects import capture_and_detect_objects
 
 WIDTH = 300
 HEIGHT = 300
@@ -17,10 +17,11 @@ OBJECT_BOUNDING_COLOURS = np.random.uniform(255, 0, size=1001)
 ds_factor = 0.6
 grand_parent = os.path.abspath(__file__ + "/../../../")
 cascPath = grand_parent + '/tf_models/haarcascade_frontalface_default.xml'
-
-np.set_printoptions(threshold=sys.maxsize)
+SSDprotoPath = grand_parent + "/tf_models/MobileNetSSD_deploy.prototxt.txt"
+SSDcafePath = grand_parent + "/tf_models/MobileNetSSD_deploy.caffemodel"
 
 faceCascade = cv.CascadeClassifier(cascPath)
+ssd_net = cv.dnn.readNetFromCaffe(SSDprotoPath, SSDcafePath)
 
 class VideoCamera(object):
     def __init__(self):
@@ -32,14 +33,24 @@ class VideoCamera(object):
 
     
     def crop_objects(_, frame):
-        try:
-            img = cv.resize(frame, (244, 244), fx=0.5, fy=0.5, interpolation=cv.INTER_AREA)
-            normalise_frame = (2 * ((img - 0 )/(255 - 0))) - 1
-            frame = capture_and_detect_objects(normalise_frame)
-            frame = ((frame + 1) * 127.5)
-            print("RETURNING FRAME FROM DETECT_OBJECTS !!!!...... {}".format(frame))
-        except Exception as e:
-            print(e)
+        (h, w) = frame.shape[:2]
+        resized = cv.resize(frame, (WIDTH, HEIGHT))
+        blob = cv.dnn.blobFromImage(resized, SCALE_FACTOR, (WIDTH, HEIGHT), MEAN_VAL)
+        ssd_net.setInput(blob)
+        ssd_net_results = ssd_net.forward()
+
+        # Draw bounding boxes
+        for i in np.arange(0, ssd_net_results.shape[2]):
+            confidence = ssd_net_results[0, 0, i, 2]
+            if confidence > 0.20:
+                idx = int(ssd_net_results[0, 0, i, 1])
+                crop = ssd_net_results[0, 0, i, 3:7] * np.array([w, h, w, h])
+                (x1, y1, x2, y2) = crop.astype("int")
+                # Crop object and send to detect_objects
+                crop_img = frame[y1:y2, x1:x2]
+                object_result = capture_and_detect_objects(crop_img)
+                cv.rectangle(frame, (x1, y1), (x2, y2), OBJECT_BOUNDING_COLOURS[idx], 2)
+
         return frame
 
 
