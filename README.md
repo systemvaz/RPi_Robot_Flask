@@ -17,7 +17,7 @@ Work in progresss....
 * Multi object detection and recognition via webcam
 * Face detection and recognition + expression recognition via webcam
 * Flask web application for remote viewing via network
-* Python 3.7.3 and Tensorflow lite runtime
+* Python 3.7.3, Tensorflow lite runtime, OpenCV
 
 ![Robo](https://github.com/systemvaz/RPi_Robot/blob/master/Robot/lib/img/robo.jpg)
 ![Robo](https://github.com/systemvaz/RPi_Robot/blob/master/Robot/lib/img/robo2.jpg)
