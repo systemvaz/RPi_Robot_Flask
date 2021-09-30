@@ -10,7 +10,7 @@ Work in progresss....
 * 4 x Geard Motors
 * Ultrasonic Distance Sensor
 * Onboard batteries for power to motors and RPi
-* USB hub to route power to the RPi. Going to replace with proper USB power bank to supply more power, eg. 5v 3A
+* USB hub to route power to the RPi. Going to replace with a USB power bank to supply more power, eg. 5v 3A
 
 ## Current Software & Functionality ##
 * Raspberry Pi OS Lite
