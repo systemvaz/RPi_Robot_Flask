@@ -3,7 +3,7 @@ Robotics project utilising Rasberry Pi 4B, motor controllers and various sensors
 Work in progresss....
 
 ## Current Hardware: ##
-* Rasberry Pi 4b
+* Rasberry Pi 4b 8GB ram - Overclocked to 2Ghz
 * Logitec HD 720p webcam
 * max7219 8x8 Red LED Matrix
 * L298N Dual Motor Controller
