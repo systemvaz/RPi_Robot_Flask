@@ -17,6 +17,7 @@ Work in progresss....
 * Basic motor control
 * Multi object detection and recognition via webcam
 * Face detection and recognition + expression recognition via webcam
+* LED matrix displays different faces mimicking the humans expression (I don't know, it just seemed fun / a good test lol)
 * Flask web application for remote viewing via network
 * Python 3.7.3, Tensorflow lite runtime, OpenCV
 
