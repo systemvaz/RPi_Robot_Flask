@@ -5,7 +5,7 @@ Work in progresss....
 ## Current Hardware: ##
 * Rasberry Pi 4b
 * Logitec HD 720p webcam
-* 8x8 Red LED Matrix
+* max7219 8x8 Red LED Matrix
 * L298N Dual Motor Controller
 * 4 x Geard Motors
 * Ultrasonic Distance Sensor
