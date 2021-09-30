@@ -1,5 +1,5 @@
 # RPi_Robot #
-Robotics project utilising Rasberry Pi 4B, motor controllers and various sensors.
+Autonomous robotics project utilising Rasberry Pi 4B, motor controllers and various sensors.
 Making it up as I go, so it's a work in progresss....
 
 ## Current Hardware: ##
