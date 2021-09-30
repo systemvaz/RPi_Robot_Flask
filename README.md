@@ -1,6 +1,6 @@
 # RPi_Robot #
 Robotics project utilising Rasberry Pi 4B, motor controllers and various sensors.
-Work in progresss....
+Making it up as I go, so it's a work in progresss....
 
 ## Current Hardware: ##
 * Rasberry Pi 4b 8GB ram - Overclocked to 2Ghz - Heatsink and dual fans
