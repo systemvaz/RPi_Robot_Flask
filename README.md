@@ -1,4 +1,4 @@
-# RPi_Robot #
+# RPi_Robot with Flask Server #
 
 ## Current Hardware: ##
 * Rasberry Pi 4b 8GB ram - Overclocked to 2Ghz - Heatsink and dual fans
