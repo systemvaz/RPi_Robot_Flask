@@ -16,7 +16,7 @@
 * Multi object detection and recognition via webcam + Caffe model
 * Face detection and recognition + expression recognition via webcam + Tensorflow lite model
 * LED matrix displays different faces mimicking the humans expression (I don't know, it just seemed fun / a good test lol)
-* Flask web application for remote viewing via network
+* Flask web application for remote viewing webcam stream via network
 * Python 3.7.3, Tensorflow lite runtime, OpenCV
 
 ![Robo](https://github.com/systemvaz/RPi_Robot/blob/master/Robot/lib/img/robo.jpg)
